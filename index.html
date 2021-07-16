@@ -17,9 +17,10 @@
   </head>
 
   <body>
-    <div id="container">
+    <img id="bg" src="\Assets\images\bg.png" alt="">
+    <div id="external-container">
       <h1 id="title"><span>BlackJack</span></h1>
-      <h3><span id="result">Let's Play</span></h3>
+      <h2><span id="lets-play">Let's Play</span></h2>
 
       <div class="row-1">
         <div id="player-box">
@@ -36,6 +37,20 @@
           <button class="btn deal">Deal</button>
         </div>
       </div>
+      <div class="row-3">
+        <table id="scores">
+          <tr>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+          </tr>
+
+          <tr>
+            <td><span id="wins">0</span></td>
+            <td><span id="losses">0</span></td>
+            <td><span id="draws">0</span></td>
+          </tr>
+        </table>
     </div>
   </body>
 </html>
