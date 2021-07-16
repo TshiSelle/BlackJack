@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+#title {
+  color: #000000;
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 0.6em;
+  color: #000000;
+  cursor: pointer;
+  align-self: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 0.5;
+  margin: 20px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  position: relative;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+}
+.hit {
+  transition: box-shadow 300ms ease-in-out, color 200ms ease-in-out;
+}
+.hit:hover {
+  box-shadow: 0 0 40px 40px royalblue inset;
+}
+.stand {
+  transition: box-shadow 300ms ease-in-out, color 200ms ease-in-out;
+}
+.stand:hover {
+  box-shadow: 0 0 40px 40px yellowgreen inset;
+}
+.deal {
+  transition: box-shadow 300ms ease-in-out, color 200ms ease-in-out;
+}
+.deal:hover {
+  box-shadow: 0 0 40px 40px red inset;
+}
