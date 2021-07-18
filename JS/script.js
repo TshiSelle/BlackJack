@@ -1,2 +1,7 @@
 //BlackJack
-document.querySelector('bj-hit').addEventListener('click', blackjackHit)
+alert('sell')
+document.getElementById("bj-hit").addEventListener('click', bjHit)
+
+function bjHit() {
+  alert('bee3a')
+}
