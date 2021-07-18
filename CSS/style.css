@@ -74,7 +74,7 @@ h2 {
   font-weight: 400;
   position: relative;
 }
-.btn:hover,
+.btn:active,
 .btn:focus {
   color: #fff;
 }
@@ -84,7 +84,7 @@ h2 {
   box-shadow: 0 0 40px 40px royalblue inset, 0 0 0 0 #3498db;
   transition: all 150ms ease-in-out;
 }
-.hit:hover {
+.hit:active {
   box-shadow: 0 0 2px 0 royalblue inset, 0 0 4px 2px royalblue;
 }
 .stand {
@@ -93,7 +93,7 @@ h2 {
   box-shadow: 0 0 40px 40px yellowgreen inset, 0 0 0 0 yellowgreen;
   transition: all 150ms ease-in-out;
 }
-.stand:hover {
+.stand:active {
   box-shadow: 0 0 2px 0 yellowgreen inset, 0 0 4px 2px yellowgreen;
 }
 .deal {
@@ -102,7 +102,7 @@ h2 {
   box-shadow: 0 0 40px 40px red inset, 0 0 0 0 red;
   transition: all 150ms ease-in-out;
 }
-.deal:hover {
+.deal:active {
   box-shadow: 0 0 2px 0 red inset, 0 0 4px 2px red;
 }
 
