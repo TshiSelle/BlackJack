@@ -81,7 +81,8 @@ h2 {
   font-weight: 400;
   position: relative;
 }
-.btn:hover {
+.btn:active,
+.btn:focus {
   color: #fff;
 }
 .hit {
