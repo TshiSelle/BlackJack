@@ -1,4 +1,4 @@
-document.getElementById('btn-hit').addEventListener("click", bjHit)
+document.querySelector('#btn-hit').addEventListener("click", bjHit)
 
 function bjHit() {
   alert('sell')
