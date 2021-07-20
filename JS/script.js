@@ -11,12 +11,17 @@ document.querySelector('#btn-hit').addEventListener("click", bjHit)
 document.querySelector('#btn-deal').addEventListener("click", dealBtn)
 
 function bjHit() {
-  showCard(PLAYER)
-  showCard(CPU);
+  let card = randomCard();
+  showCard(card, PLAYER)
+  showCard(card, CPU);
 }
-function showCard(activePlayer) {
+function randomCard() {
+  let randomIndex = Math.floor(Math.random() * 13)
+  return bjHit['cards'][randomIndex]
+}
+function showCard(card, activePlayer) {
   let cardImage = document.createElement('img')
-  cardImage.src = 'Assets/images/Q.png'
+  cardImage.src = 'Assets/images/${card}.png'
   document.querySelector(activePlayer['div']).appendChild(cardImage)
   hitSound.play()
 }
@@ -32,8 +37,4 @@ function dealBtn() {
     cpuImages[i].remove();
   }
 
-}
-function randomCard() {
-  let randomIndex = Math.floor(Math.random() * 13)
-  return bjHit['cards'][randomIndex]
 }
