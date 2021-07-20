@@ -7,10 +7,17 @@ const CPU = game['cpu']
 const hitSound = new Audio('Assets/sounds/swish.m4a')
 
 document.querySelector('#btn-hit').addEventListener("click", bjHit)
+document.querySelector('#btn-deal').addEventListener("clicl", dealBtn)
 
 function bjHit() {
+  showCard(PLAYER);
+}
+function showCard(activePlayer) {
   let cardImage = document.createElement('img')
   cardImage.src = 'Assets/images/Q.png'
-  document.querySelector(PLAYER['div']).appendChild(cardImage)
+  document.querySelector(activePlayer['div']).appendChild(cardImage)
   hitSound.play()
+}
+function dealBtn() {
+  let playerImages = document.querySelector('#player-box').querySelectorAll('img')
 }
