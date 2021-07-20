@@ -4,9 +4,13 @@ let game = {
 }
 const PLAYER = game['player']
 const CPU = game['cpu']
+const hitSound = new Audio('Assets/sounds/swish.m4a')
 
 document.querySelector('#btn-hit').addEventListener("click", bjHit)
 
 function bjHit() {
-  alert('sell')
+  let cardImage = document.createElement('img')
+  cardImage.src = 'Assets/images/Q.png'
+  document.querySelector(PLAYER['div']).appendChild(cardImage)
+  hitSound.play()
 }
