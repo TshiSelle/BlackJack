@@ -24,6 +24,10 @@ function dealerHit() {
   let card = randomCard()
   showCard(card, CPU)
   updateScore(card, CPU)
+
+  if (CPU['score'] > 15) {
+    showResult(winner())
+  }
 }
 
 function randomCard() {
