@@ -6,6 +6,8 @@ let game = {
   'wins': 0,
   'losses': 0,
   'draws': 0,
+  'isStand': false,
+  'turnsOver': false,
 }
 const PLAYER = game['player']
 const CPU = game['cpu']
@@ -18,17 +20,20 @@ document.querySelector('#btn-stand').addEventListener("click", dealerHit)
 document.querySelector('#btn-deal').addEventListener("click", dealBtn)
 
 function playerHit() {
-  let card = randomCard()
-  showCard(card, PLAYER)
-  updateScore(card, PLAYER)
-
+  if (game['isStand'] === false) {
+    let card = randomCard()
+    showCard(card, PLAYER)
+    updateScore(card, PLAYER)
+  }
 }
 function dealerHit() {
+  game['isStand'] = true
   let card = randomCard()
   showCard(card, CPU)
   updateScore(card, CPU)
 
   if (CPU['score'] > 15) {
+    game['turnsOver'] = true
     showResult(winner())
   }
 }
