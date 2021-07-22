@@ -100,24 +100,24 @@ function winner() {
 
   if (PLAYER['score'] <= 21) {
     if (PLAYER['score'] > CPU['score'] || (CPU['score'] > 21)) {
-
+      game['wins']++
       winner = PLAYER
     }
     else if (PLAYER['score'] < CPU['score']) {
-
+      game['losses']++
       winnder = CPU;
     }
 
     else if (PLAYER['score'] === CPU['score']) {
-
+      game['draws']++
     }
   }
   else if (PLAYER['score'] > 21 && CPU['score'] <= 21) {
-
+    game['losses']++
     winner = CPU
   }
   else if (PLAYER['score'] > 21 && CPU['score'] > 21) {
-
+    game['draws']++
 
   }
   return winner
