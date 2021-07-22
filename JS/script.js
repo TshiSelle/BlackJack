@@ -11,17 +11,28 @@ document.querySelector('#btn-hit').addEventListener("click", bjHit)
 document.querySelector('#btn-deal').addEventListener("click", dealBtn)
 
 function bjHit() {
-  let card = randomCard();
-  showCard(card, PLAYER)
-  showCard(card, CPU);
+  let playerCard = randomCard();
+  let dealerCard = randomCard();
+  showCard(playerCard, PLAYER)
+  showCard(dealerCard, CPU)
+
 }
 function randomCard() {
   let randomIndex = Math.floor(Math.random() * 13)
-  return bjHit['cards'][randomIndex]
+  console.log(bjHit)
+  return game['cards'][randomIndex]
+
 }
 function showCard(card, activePlayer) {
   let cardImage = document.createElement('img')
-  cardImage.src = 'Assets/images/${card}.png'
+  cardImage.src = `Assets/images/${card}.png`
+  cardImage.style.backgroundColor = 'white'
+  cardImage.style.height = '100px'
+  cardImage.style.width = 'auto'
+  cardImage.style.borderRadius = '5px'
+  cardImage.style.margin = '5px'
+
+  console.log(cardImage)
   document.querySelector(activePlayer['div']).appendChild(cardImage)
   hitSound.play()
 }
