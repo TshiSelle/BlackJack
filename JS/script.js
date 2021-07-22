@@ -53,7 +53,7 @@ function showCard(card, activePlayer) {
 
 }
 function dealBtn() {
-  showResult(winner())
+
   let playerImages = document.querySelector('#player-box').querySelectorAll('img')
   let cpuImages = document.querySelector('#dealer-box').querySelectorAll('img')
 
@@ -71,6 +71,8 @@ function dealBtn() {
   document.querySelector('#dealer-result').textContent = 0
   document.querySelector('#player-result').style.color = '#ffffff'
   document.querySelector('#dealer-result').style.color = '#ffffff'
+  document.querySelector('#lets-play').textContent = "Let's play"
+  document.querySelector('#lets-play').style.color = 'black'
 
 
 }
@@ -127,17 +129,20 @@ function showResult(winner) {
   let message, messageColor
 
   if (winner === PLAYER) {
+    document.querySelector('#wins').textContent = game['wins']
     message = 'YOU WIN BOI!'
     messageColor = 'green'
     winSound.play()
 
   }
   else if (winner === CPU) {
+    document.querySelector('#losses').textContent = game['losses']
     message = 'YOU LOST BOI!!'
     messageColor = 'red'
     loseSound.play()
   }
   else {
+    document.querySelector('#draws').textContent = game['draws']
     message = "IT'S A DRAW BOI!"
     messageColor = 'yellow'
   }
