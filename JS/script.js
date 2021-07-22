@@ -26,16 +26,18 @@ function playerHit() {
     updateScore(card, PLAYER)
   }
 }
-function dealerHit() {
+async function dealerHit() {
   game['isStand'] = true
-  let card = randomCard()
-  showCard(card, CPU)
-  updateScore(card, CPU)
 
-  if (CPU['score'] > 15) {
-    game['turnsOver'] = true
-    showResult(winner())
+  while (CPU['score'] < 16 && game['isStand'] === true) {
+    let card = randomCard()
+    showCard(card, CPU)
+    updateScore(card, CPU)
+    await sleep(800)
   }
+  game['turnsOver'] = true
+  showResult(winner())
+
 }
 
 function randomCard() {
@@ -133,6 +135,11 @@ function winner() {
   return winner
 
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 function showResult(winner) {
   let message, messageColor
   if (game['turnsOver'] === true) {
