@@ -7,6 +7,8 @@ let game = {
 const PLAYER = game['player']
 const CPU = game['cpu']
 const hitSound = new Audio('Assets/sounds/swish.m4a')
+const winSound = new Audio('Assets/sounds/cash.mp3')
+const loseSound = new Audio('Assets/sounds/aww.mp3')
 
 document.querySelector('#btn-hit').addEventListener("click", playerHit)
 document.querySelector('#btn-stand').addEventListener("click", dealerHit)
@@ -44,7 +46,7 @@ function showCard(card, activePlayer) {
 
 }
 function dealBtn() {
-  winner()
+  showResult(winner())
   let playerImages = document.querySelector('#player-box').querySelectorAll('img')
   let cpuImages = document.querySelector('#dealer-box').querySelectorAll('img')
 
@@ -91,27 +93,49 @@ function winner() {
 
   if (PLAYER['score'] <= 21) {
     if (PLAYER['score'] > CPU['score'] || (CPU['score'] > 21)) {
-      alert('YOU WIN BOI!')
+
       winner = PLAYER
     }
     else if (PLAYER['score'] < CPU['score']) {
-      alert('YOU LOST BOI!')
+
       winnder = CPU;
     }
-  }
-  else if (PLAYER['score'] === CPU['score']) {
-    aler("IT'S A DRAW BOI!")
+
+    else if (PLAYER['score'] === CPU['score']) {
+
+    }
   }
   else if (PLAYER['score'] > 21 && CPU['score'] <= 21) {
-    alert('YOU LOST BOI !!')
+
     winner = CPU
   }
   else if (PLAYER['score'] > 21 && CPU['score'] > 21) {
-    alert("IT'S A DRAW BOI!")
+
 
   }
   return winner
 
 }
+function showResult(winner) {
+  let message, messageColor
 
+  if (winner === PLAYER) {
+    message = 'YOU WIN BOI!'
+    messageColor = 'green'
+    winSound.play()
+
+  }
+  else if (winner === CPU) {
+    message = 'YOU LOST BOI!!'
+    messageColor = 'red'
+    loseSound.play()
+  }
+  else {
+    message = "IT'S A DRAW BOI!"
+    messageColor = 'yellow'
+  }
+  document.querySelector('#lets-play').textContent = message
+  document.querySelector('#lets-play').style.color = messageColor
+
+}
 
