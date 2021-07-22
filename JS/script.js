@@ -58,28 +58,31 @@ function showCard(card, activePlayer) {
 
 }
 function dealBtn() {
+  if (game['turnsOver'] === true) {
 
-  let playerImages = document.querySelector('#player-box').querySelectorAll('img')
-  let cpuImages = document.querySelector('#dealer-box').querySelectorAll('img')
+    game['isStand'] = false
+    let playerImages = document.querySelector('#player-box').querySelectorAll('img')
+    let cpuImages = document.querySelector('#dealer-box').querySelectorAll('img')
 
 
-  for (let i = 0; i < playerImages.length; i++) { // player array removal
-    playerImages[i].remove();
+    for (let i = 0; i < playerImages.length; i++) { // player array removal
+      playerImages[i].remove();
+    }
+    for (let i = 0; i < cpuImages.length; i++) { //dealer array removal
+      cpuImages[i].remove();
+    }
+    PLAYER['score'] = 0
+    CPU['score'] = 0
+
+    document.querySelector('#player-result').textContent = 0
+    document.querySelector('#dealer-result').textContent = 0
+    document.querySelector('#player-result').style.color = '#ffffff'
+    document.querySelector('#dealer-result').style.color = '#ffffff'
+    document.querySelector('#lets-play').textContent = "Let's play"
+    document.querySelector('#lets-play').style.color = 'black'
+
+    game['turnsOver'] = true;
   }
-  for (let i = 0; i < cpuImages.length; i++) { //dealer array removal
-    cpuImages[i].remove();
-  }
-  PLAYER['score'] = 0
-  CPU['score'] = 0
-
-  document.querySelector('#player-result').textContent = 0
-  document.querySelector('#dealer-result').textContent = 0
-  document.querySelector('#player-result').style.color = '#ffffff'
-  document.querySelector('#dealer-result').style.color = '#ffffff'
-  document.querySelector('#lets-play').textContent = "Let's play"
-  document.querySelector('#lets-play').style.color = 'black'
-
-
 }
 function updateScore(card, activePlayer) {
   if (card === 'A') {
@@ -132,27 +135,28 @@ function winner() {
 }
 function showResult(winner) {
   let message, messageColor
+  if (game['turnsOver'] === true) {
 
-  if (winner === PLAYER) {
-    document.querySelector('#wins').textContent = game['wins']
-    message = 'YOU WIN BOI!'
-    messageColor = 'green'
-    winSound.play()
+    if (winner === PLAYER) {
+      document.querySelector('#wins').textContent = game['wins']
+      message = 'YOU WIN BOI!'
+      messageColor = 'green'
+      winSound.play()
 
+    }
+    else if (winner === CPU) {
+      document.querySelector('#losses').textContent = game['losses']
+      message = 'YOU LOST BOI!!'
+      messageColor = 'red'
+      loseSound.play()
+    }
+    else {
+      document.querySelector('#draws').textContent = game['draws']
+      message = "IT'S A DRAW BOI!"
+      messageColor = 'yellow'
+    }
+    document.querySelector('#lets-play').textContent = message
+    document.querySelector('#lets-play').style.color = messageColor
   }
-  else if (winner === CPU) {
-    document.querySelector('#losses').textContent = game['losses']
-    message = 'YOU LOST BOI!!'
-    messageColor = 'red'
-    loseSound.play()
-  }
-  else {
-    document.querySelector('#draws').textContent = game['draws']
-    message = "IT'S A DRAW BOI!"
-    messageColor = 'yellow'
-  }
-  document.querySelector('#lets-play').textContent = message
-  document.querySelector('#lets-play').style.color = messageColor
-
 }
 
