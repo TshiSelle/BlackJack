@@ -19,6 +19,9 @@ document.querySelector('#btn-hit').addEventListener("click", playerHit)
 document.querySelector('#btn-stand').addEventListener("click", dealerHit)
 document.querySelector('#btn-deal').addEventListener("click", dealBtn)
 
+//==============================================================================
+//==============================================================================
+
 function playerHit() {
   if (game['isStand'] === false) {
     let card = randomCard()
@@ -26,6 +29,10 @@ function playerHit() {
     updateScore(card, PLAYER)
   }
 }
+
+//==============================================================================
+//==============================================================================
+
 async function dealerHit() {
   game['isStand'] = true
 
@@ -40,11 +47,21 @@ async function dealerHit() {
 
 }
 
+//==============================================================================
+//==============================================================================
+
+
+
 function randomCard() {
   let randomIndex = Math.floor(Math.random() * 13)
   return game['cards'][randomIndex]
 
 }
+
+//==============================================================================
+//==============================================================================
+
+
 function showCard(card, activePlayer) {
   if (activePlayer['score'] < 21) {
     let cardImage = document.createElement('img')
@@ -59,6 +76,11 @@ function showCard(card, activePlayer) {
   }
 
 }
+
+//==============================================================================
+//==============================================================================
+
+
 function dealBtn() {
   if (game['turnsOver'] === true) {
 
@@ -86,6 +108,11 @@ function dealBtn() {
     game['turnsOver'] = true;
   }
 }
+
+//==============================================================================
+//==============================================================================
+
+
 function updateScore(card, activePlayer) {
   if (card === 'A') {
     if (activePlayer['score'] + game['cardmapping'][card][1] <= 21) {
@@ -107,6 +134,11 @@ function updateScore(card, activePlayer) {
   }
 
 }
+
+//==============================================================================
+//==============================================================================
+
+
 function winner() {
   let winner;
 
@@ -136,9 +168,18 @@ function winner() {
 
 }
 
+//==============================================================================
+//==============================================================================
+
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+//==============================================================================
+//==============================================================================
+
+
 
 function showResult(winner) {
   let message, messageColor
