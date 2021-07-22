@@ -12,10 +12,13 @@ document.querySelector('#btn-hit').addEventListener("click", bjHit)
 document.querySelector('#btn-deal').addEventListener("click", dealBtn)
 
 function bjHit() {
-  let playerCard = randomCard();
-  let dealerCard = randomCard();
+  let playerCard = randomCard()
+  let dealerCard = randomCard()
   showCard(playerCard, PLAYER)
   showCard(dealerCard, CPU)
+  updateScore(playerCard, PLAYER)
+  updateScore(dealerCard, CPU)
+
 
 }
 function randomCard() {
@@ -49,4 +52,11 @@ function dealBtn() {
     cpuImages[i].remove();
   }
 
+
 }
+function updateScore(card, activePlayer) {
+
+  activePlayer['score'] += game['cardmapping'][card]
+  document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score']
+}
+
