@@ -55,8 +55,18 @@ function dealBtn() {
 
 }
 function updateScore(card, activePlayer) {
+  if (card === 'A') {
+    if (activePlayer['score'] + game['cardmapping'][card][1] <= 21) {
+      activePlayer['score'] += game['cardmapping'][card][1]
+    }
+    else {
+      activePlayer['score'] += game['cardmapping'][card][0]
+    }
+  } else {
 
-  activePlayer['score'] += game['cardmapping'][card]
+
+    activePlayer['score'] += game['cardmapping'][card]
+  }
   document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score']
 }
 
