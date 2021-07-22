@@ -28,17 +28,18 @@ function randomCard() {
 
 }
 function showCard(card, activePlayer) {
-  let cardImage = document.createElement('img')
-  cardImage.src = `Assets/images/${card}.png`
-  cardImage.style.backgroundColor = 'white'
-  cardImage.style.height = '100px'
-  cardImage.style.width = 'auto'
-  cardImage.style.borderRadius = '5px'
-  cardImage.style.margin = '5px'
+  if (activePlayer['score'] < 21) {
+    let cardImage = document.createElement('img')
+    cardImage.style.backgroundColor = 'white'
+    cardImage.style.height = '100px'
+    cardImage.style.width = 'auto'
+    cardImage.style.borderRadius = '5px'
+    cardImage.style.margin = '5px'
+    cardImage.src = `Assets/images/${card}.png`
+    document.querySelector(activePlayer['div']).appendChild(cardImage)
+    hitSound.play()
+  }
 
-  console.log(cardImage)
-  document.querySelector(activePlayer['div']).appendChild(cardImage)
-  hitSound.play()
 }
 function dealBtn() {
   let playerImages = document.querySelector('#player-box').querySelectorAll('img')
