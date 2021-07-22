@@ -44,6 +44,7 @@ function showCard(card, activePlayer) {
 
 }
 function dealBtn() {
+  winner()
   let playerImages = document.querySelector('#player-box').querySelectorAll('img')
   let cpuImages = document.querySelector('#dealer-box').querySelectorAll('img')
 
