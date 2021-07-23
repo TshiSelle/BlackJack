@@ -8,6 +8,8 @@ let game = {
   'draws': 0,
   'isStand': false,
   'turnsOver': false,
+
+
 }
 const PLAYER = game['player']
 const CPU = game['cpu']
